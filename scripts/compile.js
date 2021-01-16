@@ -1,7 +1,8 @@
 const wabt = require('wabt')();
 const fs = require('fs');
-const sourceFileName = './src/basic.wat';
-const targetFileName = './assets/basic.wasm';
+const actualCLIArgs = process.argv.slice(2);
+const sourceFileName = actualCLIArgs.length ? actualCLIArgs[0]: './src/basic.wat';
+const targetFileName = './assets/' + sourceFileName.slice(sourceFileName.lastIndexOf('/') + 1, sourceFileName.lastIndexOf('.')) + '.wasm';
 const buf = fs.readFileSync(sourceFileName, 'utf-8');
 
 wabt.then(wabtModule => {
