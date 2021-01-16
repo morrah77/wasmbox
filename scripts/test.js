@@ -67,13 +67,22 @@ function performTest(...args) {
 
     logIfDebug(wrappedConsoleBuffer);
 
-    const expected = '6';
-    const actual = wrappedConsoleBuffer.substr(wrappedConsoleBuffer.length - 2, 1);
-    if (actual !== expected) {
-        // return 1;
-        console.error('FAIL: ', actual, ' not eqals to', expected);
-    } else {
-        // return 0;
-        console.log('OK');
+    const expectedResults = [
+        {expectedVale: '6', position: 11},
+        {expectedVale: '5', position: 9},
+        {expectedVale: '-1', position: 7},
+        {expectedVale: '6', position: 4},
+        {expectedVale: '0', position: 2}
+    ];
+    for (var i = 0; i < expectedResults.length; i++) {
+        const expected = expectedResults[i].expectedVale;
+        const actual = wrappedConsoleBuffer.substr(wrappedConsoleBuffer.length - expectedResults[i].position, expectedResults[i].expectedVale.length);
+        if (actual !== expected) {
+            // return 1;
+            console.error('FAIL: ', actual, ' not eqals to', expected);
+        } else {
+            // return 0;
+            console.log('OK');
+        }
     }
 }
