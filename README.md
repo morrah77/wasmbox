@@ -42,3 +42,6 @@ view HTML page in browser, for example:
 google-chrome http://localhost:8080/wasmbox/index.html &
 ```
 
+##TODO
+
+add some Wasm sorces illustrating work with memory
