@@ -7,13 +7,25 @@ Write yor WebAssembly program in Wasm text format (see [src/basic.wat](src/basic
 ##Build
 
 ```
-node scripts/compile.js
+node scripts/compile.js <path_to_file.wat>
+```
+
+for example,
+
+```
+node scripts/compile.js ./src/maths.wat
 ```
 
 or
 
 ```
-npm run compile
+npm run compile -- <path_to_file.wat>
+```
+
+for example,
+
+```
+npm run compile -- ./src/maths.wat
 ```
 
 ##Test
